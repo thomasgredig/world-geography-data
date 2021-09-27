@@ -37,11 +37,13 @@ q1 = data.frame(
 # Load Capitals
 d1 = loadTableByURL(url.capitals)[[2]]
 Capital = d1$V1
+tail(Capital)
 cName2 = d1$V2
 q2 = data.frame(
   cName = cName2,
   Capital
 )
+iconv(Capital[254])
 
 # Load currencies
 d2 = loadTableByURL(url.currency)[[1]]
@@ -63,4 +65,4 @@ plot(q$Area, q$Population, log='xy')
 write.csv(q,'world-database.csv', row.names = FALSE)
 
 library(knitr)
-kable(q[1:5,])
+kable(q[22:32,])
