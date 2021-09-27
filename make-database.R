@@ -27,7 +27,7 @@ d = loadTableByURL(url.data)[[1]]
 # retrieve relevant parameters
 cName = d$`Country (or dependency)`
 Population = as.numeric(gsub(',','',d$`Population (2020)`))
-Area = as.numeric(gsub(',','',d$`Land Area (KmÂ²)`))
+Area = as.numeric(gsub(',','',d$`Land Area (Km²)`))
 q1 = data.frame(
   cName,
   Population,
@@ -43,7 +43,6 @@ q2 = data.frame(
   cName = cName2,
   Capital
 )
-iconv(Capital[254])
 
 # Load currencies
 d2 = loadTableByURL(url.currency)[[1]]
@@ -56,7 +55,7 @@ q3 = data.frame(
 )
 
 
-q = merge(q, q2, by='cName')
+q = merge(q1, q2, by='cName')
 q = merge(q, q3, by='cName')
 head(q)
 plot(q$Area, q$Population, log='xy')
