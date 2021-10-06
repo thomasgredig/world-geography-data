@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+  </head>
+  <body ng-controller="articleCtrl">
+
+      <h1> Todo List 2</h1>
+
+      <div ng-bind="titles"></div>
+      <div>{{ getTitle().cName }} {{ title }}
+      </div>
+
+      <ul>
+        <li ng-repeat="todo in todos | limitTo: 3">
+          {{todo.cName}} - <em>{{todo.Population}}</em>
+        </li>
+      </ul>
+
+      <input type="text" ng-model="title" />
+      <hr>
+
+      <h2>Random Country</h2>
+      What is the capital of <b>{{ getQuestion(todos).cName }}</b>?
+
+      <ul>
+        <li ng-repeat="todo in getC(todos)">
+           <button type="button" ng-click="myBtn($index)"> {{todo.Capital}} </button>
+        </li>
+      </ul>
+
+      <hr>
+      Answer is number {{ getAnswer() }}. <br>
+      Length is {{ getLength() }}.
+      <hr>
+        (c) 2022 AngularJS
+  </body>
+</html>

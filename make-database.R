@@ -63,5 +63,11 @@ plot(q$Area, q$Population, log='xy')
 
 write.csv(q,'world-database.csv', row.names = FALSE)
 
+library(jsonlite)
+qJSON = toJSON(q)
+fileConn<-file("world-database.json")
+writeLines(qJSON, fileConn)
+close(fileConn)
+
 library(knitr)
 kable(q[22:32,])

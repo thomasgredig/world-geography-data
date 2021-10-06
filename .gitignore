@@ -4,3 +4,8 @@
 .Ruserdata
 world-database.csv
 *.txt
+.DS_Store
+world-database.js
+js-test/
+js/world-database.json
+angjs/
